@@ -1,1 +1,1 @@
-# ValorantPacc
+# ValorantPraccs
