@@ -76,7 +76,6 @@ D:\ValorantPracc\Api\Api\bin\System.Web.Razor.xml
 D:\ValorantPracc\Api\Api\bin\System.Web.WebPages.xml
 D:\ValorantPracc\Api\Api\bin\System.Web.WebPages.Deployment.xml
 D:\ValorantPracc\Api\Api\bin\System.Web.WebPages.Razor.xml
-D:\ValorantPracc\Api\Api\bin\Antlr3.Runtime.pdb
 D:\ValorantPracc\Api\Api\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 D:\ValorantPracc\Api\Api\bin\es\System.Net.Http.Formatting.resources.dll
 D:\ValorantPracc\Api\Api\bin\es\System.Web.Helpers.resources.dll
@@ -93,3 +92,15 @@ D:\ValorantPracc\Api\Api\obj\Debug\Api.csproj.CoreCompileInputs.cache
 D:\ValorantPracc\Api\Api\obj\Debug\Api.csproj.CopyComplete
 D:\ValorantPracc\Api\Api\obj\Debug\Api.dll
 D:\ValorantPracc\Api\Api\obj\Debug\Api.pdb
+D:\ValorantPracc\Api\Api\bin\FluentNHibernate.dll
+D:\ValorantPracc\Api\Api\bin\Iesi.Collections.dll
+D:\ValorantPracc\Api\Api\bin\NHibernate.dll
+D:\ValorantPracc\Api\Api\bin\Remotion.Linq.dll
+D:\ValorantPracc\Api\Api\bin\Remotion.Linq.EagerFetching.dll
+D:\ValorantPracc\Api\Api\bin\Antlr3.Runtime.xml
+D:\ValorantPracc\Api\Api\bin\FluentNHibernate.pdb
+D:\ValorantPracc\Api\Api\bin\FluentNHibernate.xml
+D:\ValorantPracc\Api\Api\bin\Iesi.Collections.xml
+D:\ValorantPracc\Api\Api\bin\NHibernate.xml
+D:\ValorantPracc\Api\Api\bin\Remotion.Linq.xml
+D:\ValorantPracc\Api\Api\bin\Remotion.Linq.EagerFetching.xml
