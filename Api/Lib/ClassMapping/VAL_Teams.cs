@@ -8,7 +8,7 @@ namespace Lib.ClassMapping
         {
             Table(nameof(VAL_Teams));
             Id(x => x.TeamID);
-            Map(x => x.TeamName);
+            Map(x => x.TeamName).Not.Nullable();
         }
     }
 }

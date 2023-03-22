@@ -10,15 +10,25 @@ namespace Test
         [TestMethod]
         public void GetAgents()
         {
+            var agents = Lib.COR.Agents.GetAgentById(55);
+            Console.WriteLine(agents);
+        }
 
-            using (var ctx = Lib.DAL.HibernateHelper.GetContext)
+
+        [TestMethod]
+        public void CreateTeam()
+        {
+            Teams team = new Teams() { TeamName = "La Premade Ganadora" };
+
+            Teams.SaveTeam(team);
+
+            var teams = Teams.GetTeams();
+
+            foreach (var entry in teams)
             {
-                var agents = ctx.QueryOver<Agents>().List();
-                foreach (var item in agents)
-                {
-                    Console.Write(item.AgentName);
-                }
+                Console.WriteLine(entry.TeamName);
             }
         }
     }
 }
+

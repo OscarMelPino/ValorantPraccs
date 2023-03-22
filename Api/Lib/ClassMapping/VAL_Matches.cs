@@ -8,11 +8,11 @@ namespace Lib.ClassMapping
         {
             Table(nameof(VAL_Matches));
             Id(x => x.MatchID);
-            Map(x => x.MapID);
-            Map(x => x.MatchDate);
+            Map(x => x.MapID).Not.Nullable();
+            Map(x => x.MatchDate).Not.Nullable();
             Map(x => x.Winner);
-            Map(x => x.TeamA);
-            Map(x => x.TeamB);
+            Map(x => x.TeamA).Not.Nullable();
+            Map(x => x.TeamB).Not.Nullable();
             Map(x => x.Result);
         }
     }

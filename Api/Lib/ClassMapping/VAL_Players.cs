@@ -8,8 +8,8 @@ namespace Lib.ClassMapping
         {
             Table(nameof(VAL_Players));
             Id(x => x.PlayerID);
-            Map(x => x.PlayerName);
-            Map(x => x.PlayerRole);
+            Map(x => x.PlayerName).Not.Nullable();
+            Map(x => x.PlayerRole).Not.Nullable();
             Map(x => x.TeamID);
         }
     }
