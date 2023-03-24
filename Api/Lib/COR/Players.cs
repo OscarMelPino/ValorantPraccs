@@ -14,7 +14,7 @@ namespace Lib.COR
         public virtual string PlayerRole { get; set; }
         public virtual int TeamID { get; set; }
         public virtual bool IsActive { get; set; }
-        public virtual DateTime LeavingDate { get; set; }
+        public virtual DateTime? LeavingDate { get; set; }
 
 
         public static HashSet<Players> GetPlayers()

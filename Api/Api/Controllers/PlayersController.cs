@@ -1,4 +1,5 @@
 ﻿using Lib.COR;
+using System;
 using System.Web.Http;
 
 
@@ -7,7 +8,7 @@ namespace Api.Controllers
     public class PlayersController : ApiController
     {
         [HttpGet]
-        [Route("/api/players")]
+        [Route("api/players")]
         public IHttpActionResult Get()
         {
             var players = Players.GetPlayers();
@@ -17,7 +18,7 @@ namespace Api.Controllers
         }
 
         [HttpGet]
-        [Route("/api/players/{playerID}")]
+        [Route("api/players/{playerID}")]
         public IHttpActionResult Get([FromUri] int playerID)
         {
             var player = Players.GetPlayerById(playerID);
@@ -27,9 +28,10 @@ namespace Api.Controllers
         }
 
         [HttpPost]
-        [Route("/api/players")]
+        [Route("api/players")]
         public IHttpActionResult Post([FromBody] Players newPlayer)
         {
+            newPlayer.IsActive = true;
             var player = Players.SavePlayer(newPlayer);
             if (player == null)
                 return InternalServerError();
@@ -37,25 +39,28 @@ namespace Api.Controllers
         }
 
         [HttpPut]
-        [Route("/api/players/{playerID}")]
+        [Route("api/players/{playerID}")]
         public IHttpActionResult Put([FromUri] int playerID, [FromBody] Players updatePlayer)
         {
             var player = Players.GetPlayerById(playerID);
             if (player == null)
-                return BadRequest();
-            player = updatePlayer;
+                return NotFound();
+            player.PlayerName = updatePlayer.PlayerName;
+            player.PlayerRole = updatePlayer.PlayerRole;
+            player.TeamID = updatePlayer.TeamID;
             player = Players.SavePlayer(player);
             return Ok(player);
         }
 
         [HttpDelete]
-        [Route("/api/players/{playerID}")]
+        [Route("api/players/{playerID}")]
         public IHttpActionResult Delete([FromUri] int playerID)
         {
             var player = Players.GetPlayerById(playerID);
             if (player == null)
                 return BadRequest();
             player.IsActive = false;
+            player.LeavingDate = DateTime.Now;
             player = Players.SavePlayer(player);
             return Ok(player);
         }

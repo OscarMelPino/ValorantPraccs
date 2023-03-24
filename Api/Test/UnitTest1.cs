@@ -20,7 +20,7 @@ namespace Test
         {
             Teams team = new Teams() { TeamName = "La Premade Ganadora" };
 
-            Teams.SaveTeam(team);
+            var newTeam = Teams.SaveTeam(team);
 
             var teams = Teams.GetTeams();
 

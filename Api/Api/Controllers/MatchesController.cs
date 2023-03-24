@@ -1,4 +1,5 @@
 ﻿using Lib.COR;
+using System;
 using System.Web.Http;
 
 namespace Api.Controllers
@@ -29,6 +30,8 @@ namespace Api.Controllers
         [Route("api/matches")]
         public IHttpActionResult Post([FromBody] Matches newMatch)
         {
+            if (newMatch.MatchDate == DateTime.MinValue)
+                newMatch.MatchDate = DateTime.Now;
             var match = Matches.SaveMatch(newMatch);
             if (match == null)
                 return InternalServerError();
@@ -36,10 +39,16 @@ namespace Api.Controllers
         }
 
         [HttpPut]
-        [Route("api/matches")]
-        public IHttpActionResult Put([FromBody] Matches updateMatch)
+        [Route("api/matches/{matchID}")]
+        public IHttpActionResult Put([FromUri] int matchID, [FromBody] Matches updateMatch)
         {
-            return Ok(Matches.SaveMatch(updateMatch));
+            var match = Matches.GetMatchById(matchID);
+            if (match == null)
+                return BadRequest();
+            match.Winner = updateMatch.Winner;
+            match.Result = updateMatch.Result;
+            match = Matches.SaveMatch(match);
+            return Ok(match);
         }
     }
 }

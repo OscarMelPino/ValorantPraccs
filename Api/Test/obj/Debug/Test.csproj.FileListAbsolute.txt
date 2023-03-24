@@ -36,3 +36,5 @@ D:\ValorantPracc\Api\Test\obj\Debug\Test.csproj.CoreCompileInputs.cache
 D:\ValorantPracc\Api\Test\obj\Debug\Test.csproj.CopyComplete
 D:\ValorantPracc\Api\Test\obj\Debug\Test.dll
 D:\ValorantPracc\Api\Test\obj\Debug\Test.pdb
+D:\ValorantPracc\Api\Test\bin\Debug\Log.dll
+D:\ValorantPracc\Api\Test\bin\Debug\Log.pdb

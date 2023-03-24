@@ -4,7 +4,7 @@ using System.Web.Http;
 namespace Api.Controllers
 {
     public class AgentsController : ApiController
-    {        
+    {
         [HttpGet]
         [Route("api/agents")]
         public IHttpActionResult Get()
