@@ -1,4 +1,5 @@
 ﻿using Lib.DAL;
+using Lib.SYS;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +33,8 @@ namespace Lib.COR
             }
         }
 
-        public static bool SaveMatch(Matches match)
+        public static Matches SaveMatch(Matches match)
         {
-            bool success = false;
             using (var ctx = HibernateHelper.GetContext)
             {
                 using (var transaction = ctx.BeginTransaction())
@@ -43,15 +43,15 @@ namespace Lib.COR
                     {
                         ctx.SaveOrUpdate(match);
                         transaction.Commit();
-                        success = true;
+                        return match;
                     }
                     catch (System.Exception ex)
                     {
+                        CustomLog.Log.WriteLog("Error al guardar el match", ex);
                         throw;
                     }
                 }
             }
-            return success;
         }
     }
 }

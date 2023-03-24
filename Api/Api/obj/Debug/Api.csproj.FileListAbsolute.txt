@@ -106,3 +106,4 @@ D:\ValorantPracc\Api\Api\bin\Remotion.Linq.xml
 D:\ValorantPracc\Api\Api\bin\Remotion.Linq.EagerFetching.xml
 D:\ValorantPracc\Api\Api\bin\Lib.dll
 D:\ValorantPracc\Api\Api\bin\Lib.pdb
+D:\ValorantPracc\Api\Api\bin\Log.pdb

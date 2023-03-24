@@ -20,3 +20,5 @@ D:\ValorantPracc\Api\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
 D:\ValorantPracc\Api\Lib\obj\Debug\Lib.csproj.CopyComplete
 D:\ValorantPracc\Api\Lib\obj\Debug\Lib.dll
 D:\ValorantPracc\Api\Lib\obj\Debug\Lib.pdb
+D:\ValorantPracc\Api\Lib\bin\Debug\Log.dll
+D:\ValorantPracc\Api\Lib\bin\Debug\Log.pdb

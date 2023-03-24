@@ -10,7 +10,7 @@ namespace Test
         [TestMethod]
         public void GetAgents()
         {
-            var agents = Lib.COR.Agents.GetAgentById(55);
+            var agents = Lib.COR.Agents.GetAgents();
             Console.WriteLine(agents);
         }
 

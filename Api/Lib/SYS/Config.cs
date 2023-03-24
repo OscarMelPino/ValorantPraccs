@@ -30,10 +30,7 @@ namespace Lib.SYS
             Config _config = new Config();
             try
             {
-                string basePath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string fullPath = Path.Combine(basePath, "config.json");
-
-                var json = File.ReadAllText(fullPath);
+                var json = File.ReadAllText(Const.CONFIGPATH);
                 _config = JsonConvert.DeserializeObject<Config>(json);
             }
             catch (System.Exception ex)
@@ -50,6 +47,8 @@ namespace Lib.SYS
         public string DatabaseName { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
+        public string LogPath { get; set; }
+        public string LogName { get; set; }
         #endregion
     }
 }

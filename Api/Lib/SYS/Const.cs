@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace Lib.SYS
 {
-    public class Log
+    public class Const
     {
-
-
-
+        public const String CONFIGPATH = @"D:\ValorantPracc\Api\config.json";
     }
 }
