@@ -45,7 +45,7 @@ namespace Lib.COR
                         transaction.Commit();
                         return match;
                     }
-                    catch (System.Exception ex)
+                    catch (Exception ex)
                     {
                         CustomLog.Log.WriteLog("Error al guardar el match", ex);
                         throw;

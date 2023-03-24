@@ -1,6 +1,9 @@
 ﻿using Lib.DAL;
+using Lib.SYS;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace Lib.COR
 {
@@ -10,12 +13,15 @@ namespace Lib.COR
         public virtual string PlayerName { get; set; }
         public virtual string PlayerRole { get; set; }
         public virtual int TeamID { get; set; }
+        public virtual bool IsActive { get; set; }
+        public virtual DateTime LeavingDate { get; set; }
+
 
         public static HashSet<Players> GetPlayers()
         {
             using (var ctx = HibernateHelper.GetContext)
             {
-                return ctx.Query<Players>().ToHashSet();
+                return ctx.Query<Players>().Where(x => x.IsActive).ToHashSet();
             }
         }
 
@@ -23,13 +29,12 @@ namespace Lib.COR
         {
             using (var ctx = HibernateHelper.GetContext)
             {
-                return ctx.Get<Players>(playerID);
+                return ctx.Query<Players>().FirstOrDefault(x => x.PlayerID == playerID && x.IsActive);
             }
         }
 
-        public static bool SavePlayer(Players player)
+        public static Players SavePlayer(Players player)
         {
-            bool success = false;
             using (var ctx = HibernateHelper.GetContext)
             {
                 using (var transaction = ctx.BeginTransaction())
@@ -38,15 +43,15 @@ namespace Lib.COR
                     {
                         ctx.SaveOrUpdate(player);
                         transaction.Commit();
-                        success = true;
+                        return player;
                     }
                     catch (System.Exception ex)
                     {
+                        CustomLog.Log.WriteLog("Error al guardar el player", ex);
                         throw;
                     }
                 }
             }
-            return success;
         }
     }
 }

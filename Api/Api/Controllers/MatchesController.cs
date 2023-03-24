@@ -1,38 +1,45 @@
 ﻿using Lib.COR;
-using Newtonsoft.Json;
-using System;
 using System.Web.Http;
 
 namespace Api.Controllers
 {
     public class MatchesController : ApiController
     {
-        [System.Web.Http.HttpGet]
-        public String Get()
+        [HttpGet]
+        [Route("api/matches")]
+        public IHttpActionResult Get()
         {
             var matches = Matches.GetMatches();
-            var json = JsonConvert.SerializeObject(matches);
-            return json;
+            if (matches == null)
+                return NotFound();
+            return Ok(matches);
         }
 
         [HttpGet]
-        [Route("{matchID}")]
-        public String Get(int matchID)
+        [Route("api/matches/{matchID}")]
+        public IHttpActionResult Get([FromUri] int matchID)
         {
             var match = Matches.GetMatchById(matchID);
-            var json = JsonConvert.SerializeObject(match);
-            return json;
+            if (match == null)
+                return NotFound();
+            return Ok(match);
         }
 
-        public Matches Post([FromBody] Matches value)
+        [HttpPost]
+        [Route("api/matches")]
+        public IHttpActionResult Post([FromBody] Matches newMatch)
         {
-            return Matches.SaveMatch(value);
+            var match = Matches.SaveMatch(newMatch);
+            if (match == null)
+                return InternalServerError();
+            return Ok(match);
         }
 
-        public Matches Put([FromBody] string value)
+        [HttpPut]
+        [Route("api/matches")]
+        public IHttpActionResult Put([FromBody] Matches updateMatch)
         {
-            Matches match = JsonConvert.DeserializeObject<Matches>(value);
-            return Matches.SaveMatch(match);
+            return Ok(Matches.SaveMatch(updateMatch));
         }
     }
 }

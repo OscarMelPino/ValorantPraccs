@@ -1,6 +1,4 @@
-﻿using Log;
-
-namespace Lib.SYS
+﻿namespace Lib.SYS
 {
     public class CustomLog
     {
@@ -9,7 +7,6 @@ namespace Lib.SYS
         {
             get
             {
-
                 if (customlog == null)
                 {
                     customlog = new Log.Log(Config.Current.LogPath, Config.Current.LogName);

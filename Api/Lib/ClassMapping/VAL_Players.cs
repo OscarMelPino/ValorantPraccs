@@ -11,6 +11,8 @@ namespace Lib.ClassMapping
             Map(x => x.PlayerName).Not.Nullable();
             Map(x => x.PlayerRole).Not.Nullable();
             Map(x => x.TeamID);
+            Map(x => x.IsActive);
+            Map(x => x.LeavingDate);
         }
     }
 }

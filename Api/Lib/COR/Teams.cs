@@ -1,4 +1,5 @@
 ﻿using Lib.DAL;
+using Lib.SYS;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -26,9 +27,8 @@ namespace Lib.COR
             }
         }
 
-        public static bool SaveTeam(Teams team)
+        public static Teams SaveTeam(Teams team)
         {
-            bool success = false;
             using (var ctx = HibernateHelper.GetContext)
             {
                 using (var transaction = ctx.BeginTransaction())
@@ -37,22 +37,22 @@ namespace Lib.COR
                     {
                         ctx.SaveOrUpdate(team);
                         transaction.Commit();
-                        success = true;
+                        return team;
                     }
                     catch (System.Exception ex)
                     {
+                        CustomLog.Log.WriteLog("Error al guardar el team", ex);
                         throw;
                     }
                 }
             }
-            return success;
         }
 
         public static HashSet<Players> GetPlayersFromTeamID(int teamID)
         {
             using (var ctx = HibernateHelper.GetContext)
             {
-                return ctx.Query<Players>().Where(x => x.TeamID ==  teamID).ToHashSet();
+                return ctx.Query<Players>().Where(x => x.TeamID == teamID).ToHashSet();
             }
         }
     }

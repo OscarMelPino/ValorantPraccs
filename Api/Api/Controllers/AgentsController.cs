@@ -1,27 +1,26 @@
 ﻿using Lib.COR;
-using Newtonsoft.Json;
-using System;
 using System.Web.Http;
 
 namespace Api.Controllers
 {
     public class AgentsController : ApiController
-    {
-        // GET: Agents
-        public String Get()
+    {        
+        [HttpGet]
+        [Route("api/agents")]
+        public IHttpActionResult Get()
         {
             var agents = Agents.GetAgents();
-            var json = JsonConvert.SerializeObject(agents);
-            return json;
+            return Ok(agents);
         }
 
         [HttpGet]
         [Route("api/agents/{agentID}")]
-        public String Get([FromUri] int agentID)
+        public IHttpActionResult Get([FromUri] int agentID)
         {
             var agent = Agents.GetAgentById(agentID);
-            var json = JsonConvert.SerializeObject(agent);
-            return json;
+            if (agent == null)
+                return NotFound();
+            return Ok(agent);
         }
     }
 }
