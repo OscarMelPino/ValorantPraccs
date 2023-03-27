@@ -1,23 +1,28 @@
 export class Config {
 
-//#region Propiedades
-  apiurl : string | undefined
-//#endregion
+  agentsendpoint : string | undefined
+  mapsendpoint : string | undefined
+  teamsendpoint : string | undefined
+  playersendpoint : string | undefined
+  matchsendpoint : string | undefined
+  loginendpoint : string | undefined
 
-//#region Singleton
   private static _current : Config  
   public static get Current() : Config {
     if (!this._current)
       this._current = this.LoadConfig()
     return this._current
   }
-  //#endregion
   
   private static LoadConfig() : Config
   {
     let config = new Config()
-    config.apiurl = 'https://localhost:44313/'
-
+    config.agentsendpoint = '/api/agents'
+    config.mapsendpoint = '/api/maps'
+    config.teamsendpoint = '/api/teams'
+    config.playersendpoint = '/api/players'
+    config.matchsendpoint = '/api/matches'
+    config.loginendpoint = '/api/login'
     return config
   }  
 }

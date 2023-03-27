@@ -1,10 +1,11 @@
 ﻿using Lib.COR;
 using System;
 using System.Web.Http;
-
+using System.Web.Http.Cors;
 
 namespace Api.Controllers
 {
+    [EnableCors(origins: "http://localhost:4200", headers: "*", methods: "*")]
     public class PlayersController : ApiController
     {
         [HttpGet]

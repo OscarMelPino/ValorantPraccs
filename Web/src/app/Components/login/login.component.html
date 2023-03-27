@@ -1,0 +1,19 @@
+<form method="post" action="api/login" (ngSubmit)="ValidateCredentials(); loginForm.resetForm()" #loginForm="ngForm" autocomplete="off" >
+    <label>Nombre de usuario</label>
+    <input type="text" placeholder="Username" name="username" [(ngModel)]="this.username">
+    <br>
+    <label>Nombre de usuario</label>
+    <input type="password" placeholder="Password" name="password" [(ngModel)]="this.password">
+    <br>    
+    <input type="submit" value="Iniciar sesion" >    
+</form>
+
+
+
+<p>
+    {{this.username}}
+</p>
+<br>
+<p>
+    {{this.password}}
+</p>

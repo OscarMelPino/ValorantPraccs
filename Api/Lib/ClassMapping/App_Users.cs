@@ -7,7 +7,7 @@ namespace Lib.ClassMapping
         public App_Users()
         {
             Table(nameof(App_Users));
-            Id(x => x.Id);
+            Id(x => x.ID);
             Map(x => x.Username).Not.Nullable().Unique();
             Map(x => x.Password).Not.Nullable();
             Map(x => x.CreatedAt).Not.Nullable().Default("CURRENT_TIMESTAMP");
