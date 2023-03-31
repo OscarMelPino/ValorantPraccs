@@ -29,4 +29,12 @@ export class ApiService {
         .subscribe(ok => valid = ok)
     return valid
   }
+
+  registerUser(username : string, password : string) : boolean {
+    let created : boolean = false
+    const endpoint = Config.Current.loginendpoint + '/new'
+    this.http.post<boolean>(endpoint, { username: username, password: password })
+        .subscribe(ok => created = ok)
+    return created
+  }
 }

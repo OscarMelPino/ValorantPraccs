@@ -7,4 +7,9 @@ import { Component, OnInit } from '@angular/core'
 })
 export class BannerComponent {
   
+  showLogin : boolean = false
+
+  public triggerLoginView() : void {
+    this.showLogin = !this.showLogin
+  }
 }

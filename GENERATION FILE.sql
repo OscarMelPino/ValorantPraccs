@@ -78,4 +78,7 @@ INSERT INTO VAL_Maps (MapName) VALUES
 ('Breeze'),
 ('Fracture'),
 ('Pearl'),
-('Lotus')
+('Lotus');
+
+INSERT INTO valorantpraccs.app_users (Username,Password,CreatedAt,UpdatedAt) 
+VALUES ('oscar', 'da248eeaffa573da8c323c3eb56aaf32ec6ce244e401a24c55f30c907d0bbfb5', current_timestamp(), current_timestamp() )

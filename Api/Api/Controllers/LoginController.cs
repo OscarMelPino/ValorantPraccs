@@ -16,7 +16,14 @@ namespace Api.Controllers
             return Unauthorized();
         }
 
-        // TODO: make the post to create users and the necesary methods
+        [HttpPost]
+        [Route("api/login/new")]
+        public IHttpActionResult Register([FromBody] LoginRequest request)
+        {
+            if (LoginHelper.CreateNewUser(request.Username, request.Password))
+                return Ok();
+            return Unauthorized();
+        }
     }
     public class LoginRequest
     {
